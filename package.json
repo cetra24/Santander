@@ -1,0 +1,17 @@
+{
+    "name": "santander-para-javascript",
+    "version": "1.0.0",
+    "description": "Descripción de tu proyecto",
+    "main": "js/main.js",
+    "scripts": {
+        "watch": "sass --watch scss/main.scss:css/main.css"
+      },
+      
+      
+      
+    "dependencies": {
+    },
+    "devDependencies": {
+    }
+  }
+  

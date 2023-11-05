@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sesión</title>
+    <link href="../css/main.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <style>
+        .navbar-custom {
+            height: 10px;
+        }
+
+        .navbar-custom .navbar-brand {
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="../img/santander.webp" alt="Santander Logo" class="img-fluid" style="width: 50px; height: 50px; margin-right: 10px;">
+                <span>Santander</span>
+            </a>
+            <ul class="navbar-nav ml-auto"> 
+                <li class="nav-item">
+                    <button id="cerrarSesion" class="btn btn-danger">Cerrar Sesión</button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-2">
+                <a href="#" id="menuButton" class="btn btn-danger">Menú</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-2 d-none" id="menuContainer">
+                <div class="menu">
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <a href="#">
+                                <img src="../img/santander.webp" alt="Santander Logo" class="img-fluid"
+                                    style="width: 100px; height: 100px;">
+                            </a>
+                        </li>
+                        <li class="list-group-item">Consultas
+                            <ul>
+                                <li class="list-group-item my-menu-item"><a href="cuentas.html">Cuentas</a></li>
+                                <li class="list-group-item my-menu-item"><a href="tarjetas.html">Tarjetas</a></li>
+                                <li class="list-group-item my-menu-item"><a href="prestamos.html">Prestamos</a></li>
+                                <li class="list-group-item my-menu-item"><a href="seguros.html">Seguros</a></li>
+                            </ul>
+                        </li>
+                        <li class="list-group-item">Transacciones
+                            <ul>
+                                <li class="list-group-item my-menu-item"><a href="pago-servicios.html">Pago de Servicios e Impuestos</a></li>
+                                <li class="list-group-item my-menu-item"><a href="pago-tarjeta.html">Pago de Tarjeta</a></li>
+                                <li class="list-group-item my-menu-item"><a href="transferencias.html">Transferencias</a></li>
+                                <li class="list-group-item my-menu-item"><a href="compra-venta-dolares.html">Compra y venta de dólares</a></li>
+                            </ul>
+                        </li>
+                        <li class="list-group-item">Inversiones
+                            <ul>
+                                <li class="list-group-item my-menu-item"><a href="plazo-fijo.html">Plazo Fijo</a></li>
+                                <li class="list-group-item my-menu-item"><a href="fondo-comun-inversion.html">Fondo común de inversión</a></li>
+                                <li class="list-group-item my-menu-item"><a href="bonos.html">Bonos</a></li>
+                                <li class="list-group-item my-menu-item"><a href="acciones.html">Acciones</a></li>
+                                <li class="list-group-item my-menu-item"><a href="compra-venta-dolar-mep.html">Compra-Venta de dólar MEP</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-10">
+                <div class="calculator-container">
+                    <h2>Calculadora de Préstamos</h2>
+                    <form id="loanCalculatorForm">
+                        <label for="importe">Importe del Préstamo:</label>
+                        <input type="number" id="importe" name="importe" placeholder="Ingrese el importe" required><br><br>
+                    
+                        <label for="cuotas">Número de Cuotas:</label>
+                        <input type="number" id="cuotas" name="cuotas" placeholder="Ingrese el número de cuotas" required><br><br>
+                    
+                        <label for="tasa">Tasa de Interés Anual (%):</label>
+                        <input type="number" step="0.01" id="tasa" name="tasa" placeholder="Ingrese la tasa de interés" required><br><br>
+                    
+                        <label for="seleccionCuota">Selecciona una Cuota:</label>
+                        <select id="seleccionCuota" name="seleccionCuota">
+                        </select>
+                    
+                        <input type="button" value="Calcular" id="calcularButton">
+                    </form>
+                    
+                    <div id="resultado" style="display: none;">
+                        <br>
+                        <p id="cuotaMensualText"></p>
+                        <p id="totalPrestamoText"></p>
+                    </div>
+                    
+                    
+                    <input type="button" value="Reestablecer" id="reestablecerButton" style="display: none;">
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script src="../js/usuario.js"></script>
+    <script src="../js/calculo.js"></script>
+</body>
+
+</html>
