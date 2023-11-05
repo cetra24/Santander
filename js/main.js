@@ -2,7 +2,7 @@ const usuariosRegistrados = [
     {
         dni: "12345678",
         usuario: "usuario",
-        clave: "contraseña"
+        clave: "clave"
     }
 ];
 

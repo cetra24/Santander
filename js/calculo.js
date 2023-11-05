@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
     
             const cuotaMensual = (importe * tasaMensual) / (1 - Math.pow(1 + tasaMensual, -cuotaSeleccionada));
     
-            cuotaMensualText.textContent = `La cuota ${cuotaSeleccionada} es: ${cuotaMensual.toFixed(2)}`;
+            cuotaMensualText.textContent = `La cuota ${cuotaSeleccionada} es: $${cuotaMensual.toFixed(2)}`;
             totalPrestamoText.textContent = `El total del préstamo es de $${totalPrestamo.toFixed(2)}`;
             resultadoDiv.style.display = "block";
         };
