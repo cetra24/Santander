@@ -4,7 +4,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const cuotaMensualText = document.getElementById("cuotaMensualText");
     const resultadoDiv = document.getElementById("resultado");
     const reestablecerButton = document.getElementById("reestablecerButton");
-
     const importeInput = document.getElementById("importe");
     const tasaInput = document.getElementById("tasa");
     const totalPrestamoText = document.getElementById("totalPrestamoText");
@@ -26,16 +25,17 @@ document.addEventListener("DOMContentLoaded", function () {
         const cuotaSeleccionada = parseInt(seleccionCuota.value);
         const tasaMensual = parseFloat(tasaInput.value) / 12 / 100;
         const importe = parseFloat(importeInput.value);
+        const importeMensual = importe / cuotasInput.value;
         const cuotasArray = [];
         let totalPrestamo = 0;
     
         for (let i = 1; i <= cuotaSeleccionada; i++) {
-            const cuotaMensual = (importe * tasaMensual) / (1 - Math.pow(1 + tasaMensual, -i));
+            const cuotaMensual = importeMensual + (importe * tasaMensual) / (1 - Math.pow(1 + tasaMensual, -i));
             cuotasArray.push(`Cuota ${i}: ${cuotaMensual.toFixed(2)}`);
         }
         
         for (let i = 1 + 1; i <= cuotasInput.value; i++) {
-            const cuotaMensualTotal = (importe * tasaMensual) / (1 - Math.pow(1 + tasaMensual, -i));
+            const cuotaMensualTotal = importeMensual + (importe * tasaMensual) / (1 - Math.pow(1 + tasaMensual, -i));
             cuotasArray.push(`Cuota ${i}: ${cuotaMensualTotal.toFixed(2)}`);
             totalPrestamo += cuotaMensualTotal;
         }
@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const tasaMensual = parseFloat(tasaInput.value) / 12 / 100;
             const importe = parseFloat(importeInput.value);
     
-            const cuotaMensual = (importe * tasaMensual) / (1 - Math.pow(1 + tasaMensual, -cuotaSeleccionada));
+            const cuotaMensual = importeMensual + (importe * tasaMensual) / (1 - Math.pow(1 + tasaMensual, -cuotaSeleccionada));
     
             cuotaMensualText.textContent = `La cuota ${cuotaSeleccionada} es: $${cuotaMensual.toFixed(2)}`;
             totalPrestamoText.textContent = `El total del préstamo es de $${totalPrestamo.toFixed(2)}`;
