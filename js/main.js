@@ -18,6 +18,7 @@ document.getElementById("loginForm").addEventListener("submit", function(event) 
     });
 
     if (usuarioEncontrado) {
+        sessionStorage.setItem("nombreUsuario", usuarioEncontrado.usuario);
         window.location.href = "html/sesion.html";
     } else {
         alert("Credenciales incorrectas. Por favor, inténtalo de nuevo.");

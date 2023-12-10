@@ -1,7 +1,7 @@
 function obtenerNombreUsuario() {
     const urlParams = new URLSearchParams(window.location.search);
     const usuario = urlParams.get("usuario");
-    return usuario;
+    return usuario || sessionStorage.getItem("nombreUsuario");
 }
 
 function mostrarNombreUsuario() {
@@ -14,6 +14,7 @@ function mostrarNombreUsuario() {
 mostrarNombreUsuario();
 
 document.getElementById("cerrarSesion").addEventListener("click", function () {
+    sessionStorage.removeItem("nombreUsuario");
     window.location.href = "../index.html";
 });
 
@@ -29,3 +30,4 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
+
