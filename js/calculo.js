@@ -7,6 +7,15 @@ document.addEventListener("DOMContentLoaded", function () {
     const importeInput = document.getElementById("importe");
     const tasaInput = document.getElementById("tasa");
     const totalPrestamoText = document.getElementById("totalPrestamoText");
+    const calcularButton = document.getElementById("calcularButton");
+
+    function almacenarDatosLocalStorage(key, value) {
+        localStorage.setItem(key, value);
+    }
+
+    function recuperarDatosLocalStorage(key) {
+        return localStorage.getItem(key);
+    }
 
     const cargarCuotas = () => {
         seleccionCuota.innerHTML = "";
@@ -21,7 +30,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     cuotasInput.addEventListener("change", cargarCuotas);
 
-    const calcularButton = document.getElementById("calcularButton");
     calcularButton.addEventListener("click", function () {
         const cuotaSeleccionada = parseInt(seleccionCuota.value);
         const tasaMensual = parseFloat(tasaInput.value) / 12 / 100;
@@ -32,12 +40,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
         for (let i = 1; i <= cuotaSeleccionada; i++) {
             const cuotaMensual = importeMensual + (importe * tasaMensual) / (1 - Math.pow(1 + tasaMensual, -i));
-            cuotasArray.push(`Cuota ${i}: ${cuotaMensual.toFixed(2)}`);
+            cuotasArray.push(`Cuota ${i}: $${cuotaMensual.toFixed(2)}`);
         }
 
         for (let i = 1 + 1; i <= cuotasInput.value; i++) {
             const cuotaMensualTotal = importeMensual + (importe * tasaMensual) / (1 - Math.pow(1 + tasaMensual, -i));
-            cuotasArray.push(`Cuota ${i}: ${cuotaMensualTotal.toFixed(2)}`);
+            cuotasArray.push(`Cuota ${i}: $${cuotaMensualTotal.toFixed(2)}`);
             totalPrestamo += cuotaMensualTotal;
         }
 
@@ -54,11 +62,14 @@ document.addEventListener("DOMContentLoaded", function () {
         };
 
         seleccionCuota.addEventListener("change", actualizarCuota);
-        console.log("Todas las cuotas:");
+
+        resultadoDiv.innerHTML = "";
+
         cuotasArray.forEach(function (cuota, index) {
-            console.log(cuota);
+            const resultadoP = document.createElement("p");
+            resultadoP.textContent = cuota;
+            resultadoDiv.appendChild(resultadoP);
         });
-        console.log("Acumulado:" + totalPrestamo.toFixed(2));
 
         reestablecerButton.style.display = "block";
         resultadoDiv.style.display = "block";
@@ -74,6 +85,8 @@ document.addEventListener("DOMContentLoaded", function () {
         seleccionCuota.innerHTML = "";
         localStorage.removeItem("cuotas");
         localStorage.removeItem("totalPrestamo");
+
+        resultadoDiv.innerHTML = "";
     });
 
     const mostrarDatosAlmacenados = () => {
