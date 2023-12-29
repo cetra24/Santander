@@ -1,33 +1,30 @@
-function obtenerNombreUsuario() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const usuario = urlParams.get("usuario");
-    return usuario || sessionStorage.getItem("nombreUsuario");
-}
+(function () {
+    document.addEventListener("DOMContentLoaded", async function () {
+        const menuContainer = document.getElementById("menuContainer");
+        const menuButton = document.getElementById("menuButton");
 
-function mostrarNombreUsuario() {
-    const nombreUsuario = obtenerNombreUsuario();
-    if (nombreUsuario) {
-        document.getElementById("nombreUsuario").textContent = "Hola " + nombreUsuario;
-    }
-}
+        menuButton.addEventListener("click", function () {
+            menuContainer.classList.toggle("d-none");
+        });
 
-mostrarNombreUsuario();
+        const obtenerNombreUsuario = () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const usuario = urlParams.get("usuario");
+            return usuario || sessionStorage.getItem("nombreUsuario");
+        };
 
-document.getElementById("cerrarSesion").addEventListener("click", function () {
-    sessionStorage.removeItem("nombreUsuario");
-    window.location.href = "../index.html";
-});
+        const mostrarNombreUsuario = () => {
+            const nombreUsuario = obtenerNombreUsuario();
+            if (nombreUsuario) {
+                document.getElementById("nombreUsuario").textContent = "Hola " + nombreUsuario;
+            }
+        };
 
-document.addEventListener("DOMContentLoaded", function() {
-    const menuContainer = document.getElementById("menuContainer");
-    const menuButton = document.getElementById("menuButton");
+        mostrarNombreUsuario();
 
-    menuButton.addEventListener("click", function() {
-        if (menuContainer.classList.contains("d-none")) {
-            menuContainer.classList.remove("d-none");
-        } else {
-            menuContainer.classList.add("d-none");
-        }
+        document.getElementById("cerrarSesion").addEventListener("click", function () {
+            sessionStorage.removeItem("nombreUsuario");
+            window.location.href = "../index.html";
+        });
     });
-});
-
+})();

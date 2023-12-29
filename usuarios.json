@@ -1,0 +1,77 @@
+[
+    {
+        "dni": "12345678",
+        "usuario": "usuario",
+        "clave": "clave"
+    },
+    {
+        "dni": "98765432",
+        "usuario": "otrousuario",
+        "clave": "otraclave"
+    },
+    {
+        "dni": "87654321",
+        "usuario": "user123",
+        "clave": "pass123"
+    },
+    {
+        "dni": "54321678",
+        "usuario": "john_doe",
+        "clave": "doe123"
+    },
+    {
+        "dni": "98761234",
+        "usuario": "jane_smith",
+        "clave": "smith567"
+    },
+    {
+        "dni": "34561290",
+        "usuario": "alex_jones",
+        "clave": "jones321"
+    },
+    {
+        "dni": "76543210",
+        "usuario": "anna_watson",
+        "clave": "watson789"
+    },
+    {
+        "dni": "23456789",
+        "usuario": "peter_parker",
+        "clave": "spiderman"
+    },
+    {
+        "dni": "89012345",
+        "usuario": "mary_jane",
+        "clave": "mary456"
+    },
+    {
+        "dni": "45678901",
+        "usuario": "bruce_wayne",
+        "clave": "batman"
+    },
+    {
+        "dni": "10987654",
+        "usuario": "diana_prince",
+        "clave": "wonderwoman"
+    },
+    {
+        "dni": "98765409",
+        "usuario": "tony_stark",
+        "clave": "ironman"
+    },
+    {
+        "dni": "32109876",
+        "usuario": "natasha_romanoff",
+        "clave": "blackwidow"
+    },
+    {
+        "dni": "67890123",
+        "usuario": "clark_kent",
+        "clave": "superman"
+    },
+    {
+        "dni": "87659012",
+        "usuario": "selina_kyle",
+        "clave": "catwoman"
+    }
+]
